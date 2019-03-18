@@ -125,16 +125,15 @@
     }
   },
 
-  "Resources" : {
-  "InstanceProfile" : {
-    "Type" : "AWS::IAM::InstanceProfile",
-    "Properties" : {
-      "Path" : "/",
-      "Roles" : ["Ec2ToS3Role"]
-    }
-  },
-
-  "Resources": {
+    "Resources" : {
+    "InstanceProfile" : {
+      "Type" : "AWS::IAM::InstanceProfile",
+      "Properties" : {
+        "Path" : "/",
+        "Roles" : ["Ec2ToS3Role"]
+      }
+    },
+  
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
       "Metadata": {
