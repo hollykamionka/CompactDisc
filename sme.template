@@ -125,6 +125,15 @@
     }
   },
 
+  "Resources" : {
+  "InstanceProfile" : {
+    "Type" : "AWS::IAM::InstanceProfile",
+    "Properties" : {
+      "Path" : "/",
+      "Roles" : ["Ec2ToS3Role"]
+    }
+  },
+
   "Resources": {
     "ElasticLoadBalancer": {
       "Type": "AWS::ElasticLoadBalancing::LoadBalancer",
@@ -182,7 +191,7 @@
         "InstanceType": { "Ref": "InstanceType" },
         "SecurityGroups": [{ "Ref": "WebServerSecurityGroup" }],
         "KeyName": { "Ref": "KeyName" },
-
+        "IamInstanceProfile" : {"Ref" : "InstanceProfile"},
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
