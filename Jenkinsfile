@@ -11,7 +11,7 @@ pipeline {
     }
     stage ('deliver') {
       steps() {
-        sh 'aws s3 cp target/SpringDataRestBoot-0.0.1-SNAPSHOT.jar s3://sme-artifact-bucket/SpringDataRestBoot-0.0.1-SNAPSHOT.jar --region us-west-2'
+        sh 'aws s3 cp target/SpringDataRestBoot-0.0.1-SNAPSHOT.jar s3://sme-artifact-bucket/SpringDataRestBoot-0.0.1-SNAPSHOT.jar --capabilities CAPABILITY_IAM --region us-west-2'
       }
     }  
     stage ('deploy') {
